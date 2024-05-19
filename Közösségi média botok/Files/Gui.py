@@ -1,12 +1,20 @@
-import importlib
-import pip
+import os
 
-def check_and_install(package):
+def install_and_import(package):
     try:
-        importlib.import_module(package)
+        __import__(package)
+        print(f"{package} is already installed.", "green")
     except ImportError:
-        pip.main(['install', package])
-required_packages = [
+        print(f"{package} is not installed. Installing...", "yellow")
+        os.system(f"python -m pip install {package}")
+        try:
+            __import__(package)
+            print(f"{package} has been installed successfully.", "green")
+        except ImportError:
+            print(f"Failed to install {package}.", "red")
+
+# List of packages to ensure are installed
+packages = [
     "PyQt5",
     "selenium",
     "pyautogui",
@@ -19,16 +27,13 @@ required_packages = [
     "matplotlib"
 ]
 
-for package in required_packages:
-    check_and_install(package)
-
-print("Az összes szükséges csomag telepítve van.")
-
-
+# Check and install each package if necessary
+for package in packages:
+    install_and_import(package)
+    
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
-import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
