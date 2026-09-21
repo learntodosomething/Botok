@@ -32,7 +32,7 @@ The application provides a simple graphical user interface so that users can eas
 ## Thesis
 
 Full Bachelor's thesis (Hungarian):  
-[Szakdolgozat.pdf](docs/Mesterséges intelligencia botok.pdf)
+[Szakdolgozat.pdf](docs/Mesterséges_intelligencia_botok.pdf)
 
 **Title:** Mesterséges intelligencia botok viselkedésének és adaptációjának vizsgálata közösségi média platformokon  
 **Author:** Ozogány Ladislav  
